@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merge Array while loop</title>
+    <style>
+      body {
+        background-image: linear-gradient(
+          to bottom left,
+          rgb(253, 27, 27),
+          maroon
+        );
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1vh;
+        color: white;
+        text-align: center;
+      }
+      h1 {
+        font-size: 3rem;
+      }
+      button {
+        margin-top: 5vh;
+        width: 30vw;
+        font-size: 1.5vw;
+        padding: 1vw;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: blue;
+        color: white;
+      }
+      p {
+        font-size: 1.8rem;
+        height: 20vh;
+        width: 70vw;
+        border: 3px dashed white;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Merge Array using while loop</h1>
+    <button id="btn" onclick="mergeArrays()">Click here</button>
+    <p class="demo" id="demo">Answer visible here</p>
+    <!-- <script>
+      const a = [91, 26, 93, 84, 55, 62, 71];
+      const b = [12, 23, 34, 45];
+      const c = [];
+      const demo = document.getElementById("demo");
+      function display(arr) {
+        for (let i = 0; i < arr.length; i++) {
+          console.log(`${arr[i]} `);
+        }
+      }
+      function printArr(arr) {
+        demo.innerHTML = "Merge array is :<br/>";
+        for (let i = 0; i < arr.length; i++) {
+          demo.innerHTML += `${arr[i]} `;
+        }
+      }
+      function mergeArrays() {
+        let i = 0,
+          j = 0;
+        let count = a.length + b.length;
+        while (i < count) {
+          if (i < a.length) {
+            c[i] = a[i];
+          } else {
+            c[i] = b[j++];
+          }
+          i++;
+        }
+        display(c);
+        printArr(c);
+      }
+    </script> -->
+    <!-- ---------------------------------------------------- -->
+
+    <!-- If the arrays to be merged are sorted and after merging, the resulting should also be sorted. -->
+
+    <script>
+      const a = [12, 34, 56, 67, 89, 90, 98];
+      const b = [24, 46, 68, 80, 94];
+      const c = [];
+      const demo = document.getElementById("demo");
+      function mergeArrays() {
+        let i = 0,
+          j = 0,
+          k = 0;
+
+        while (i < a.length && j < b.length) {
+          if (a[i] <= b[j]) {
+            c[k] = a[i];
+            i++;
+          } else {
+            c[k] = b[j];
+            j++;
+          }
+          k++;
+        }
+        while (i < a.length) {
+          c[k++] = a[i++];
+        }
+        while (j < b.length) {
+          c[k++] = b[j++];
+        }
+        k = 0;
+        console.log(`Contents of merged array : `);
+        demo.innerHTML = `Merged sorted array is :<br/>`;
+        while (k < c.length) {
+          demo.innerHTML += `${c[k++]} `;
+        }
+      }
+    </script>
+  </body>
+</html>

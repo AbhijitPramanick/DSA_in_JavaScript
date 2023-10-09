@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Sorting</title>
+    <style>
+      body {
+        height: 100vh;
+        background-image: linear-gradient(
+          to right bottom,
+          rgb(252, 65, 96),
+          rgb(178, 13, 38)
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1vh;
+        color: white;
+      }
+      h2 {
+        font-size: 4rem;
+        font-weight: 600;
+      }
+      button {
+        font-size: 1.8rem;
+        width: 30vw;
+        padding: 1vh;
+        background-color: red;
+        color: white;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+      }
+      button:hover {
+        background-image: linear-gradient(to right bottom, black, grey);
+      }
+      button:active {
+        background-image: linear-gradient(to right bottom, grey, black);
+      }
+      .demo {
+        display: flex;
+        color: yellow;
+        font-size: 2rem;
+        font-weight: 500;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 20vh;
+        width: 70vw;
+        border: 2px dashed white;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Bubble sorting</h2>
+    <p class="demo" id="demo1"></p>
+    <button id="btn" onclick="bubbleSort()">Click here</button>
+    <p class="demo" id="demo2"></p>
+    <script>
+      const a = [12, 98, 23, 65, 14, 97, 56, 36, 57];
+      const n = a.length;
+      const demo1 = document.getElementById("demo1");
+      const demo2 = document.getElementById("demo2");
+      function display(a, component) {
+        component.innerHTML = `The contents of the array :<br/>`;
+        console.log(`Contents of the array of ${this}: `);
+        for (let i = 0; i < a.length; i++) {
+          console.log(a[i]);
+          component.innerHTML += `${a[i]} `;
+        }
+      }
+      console.log(`Before performing sorting...`);
+      display(a, demo1);
+      function bubbleSort() {
+        for (let i = 0; i < n - 1; i++) {
+          for (let j = 0; j < n - i; j++) {
+            if (a[j] > a[j + 1]) {
+              a[j] += a[j + 1];
+              a[j + 1] = a[j] - a[j + 1];
+              a[j] = a[j] - a[j + 1];
+            }
+          }
+        }
+        console.log(`After performing sorting...`);
+        display(a, demo2);
+      }
+    </script>
+  </body>
+</html>
