@@ -1,0 +1,93 @@
+<!-- video 2 -->
+<!-- https://www.youtube.com/watch?v=20GIloOLBQ0&list=PL8p2I9GklV47TMMnPzqnkCtSOS3ebr4O7&index=2 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video2 Array Traversing</title>
+    <style>
+      body {
+        height: 100vh;
+        width: 100vw;
+        background-image: linear-gradient(
+          to bottom right,
+          lightblue,
+          rgb(112, 251, 191)
+        );
+      }
+      p {
+        font-size: 1.5rem;
+      }
+      a {
+        text-decoration: none;
+        font-size: 1.3rem;
+      }
+      #input_number {
+        width: 50vw;
+        padding: 0.5vh;
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Array Traversing video 2</h1>
+    <p>Video link :</p>
+    <a
+      href="https://www.youtube.com/watch?v=20GIloOLBQ0&list=PL8p2I9GklV47TMMnPzqnkCtSOS3ebr4O7&index=2 "
+      target="_blank"
+      >Click here</a
+    >
+    <div class="demo">
+      <h3>document.write()</h3>
+      Write some text directly to the HTML output: <br />Write some HTML
+      elements directly to the HTML output: <br />
+      Using document.write() after a document is loaded, deletes all existing
+      HTML:
+    </div>
+    <br />
+    <hr />
+    <input
+      type="text"
+      placeholder="Enter element number here"
+      id="input_number"
+    />
+    <button id="id-search_element" onclick="getElement()">
+      Click here to display the element</button
+    ><br />
+    <script>
+      // ----------------------------------------------------
+      //Traversing the array
+      let a = [11, 43, 7, 95, 2, 13, 0, 15, 24, 57];
+      for (let i = 0; i < a.length; i++) {
+        document.write(`array [${i}] : ${a[i]}<br/>`);
+      }
+
+      // ----------------------------------------------------
+      //Accessing the array
+      let x = 3;
+      document.write(`<br/>${x} element is ${a[x]}`);
+
+      // ----------------------------------------------------
+      //Using the input field and button to search for an element in the array
+      const search_btn = document.getElementById("search_element");
+
+      function getElement() {
+        const index = document.getElementById("input_number").value;
+        input_number.value = "";
+        if (
+          index < a.length &&
+          index >= 0 &&
+          typeof parseInt(index) === "number"
+        ) {
+          console.log(`Element at index ${index} : ${a[index]}`);
+        } else {
+          console.log("Out of scope search!!!");
+          return;
+        }
+      }
+      // ----------------------------------------------------
+    </script>
+  </body>
+</html>

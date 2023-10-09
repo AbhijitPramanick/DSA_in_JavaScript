@@ -1,0 +1,78 @@
+<!-- video 03 : Inserting in array  -->
+
+<!-- How to insert a new array in the already existing array -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insertion in array</title>
+    <style>
+      body {
+        width: 100vw;
+        height: 100vh;
+        background-image: linear-gradient(
+          to bottom left,
+          rgb(16, 13, 192),
+          rgb(2, 139, 2)
+        );
+        color: white;
+      }
+      h1 {
+        font-size: 2rem;
+        color: white;
+      }
+      input {
+        font-size: 1.2rem;
+        padding: 1vw;
+      }
+      button {
+        width: 20vw;
+        height: 5vh;
+        font-size: 1rem;
+        background-color: red;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: orangered;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Insertion in Array</h1>
+    <input type="text" id="inpEl" placeholder="Enter element" />
+    <input type="text" id="inpPos" placeholder="Enter postion" />
+    <button id="insertBtn" onclick="performInsertion()">Insert</button>
+    <script>
+      const a = [23, 45, 67, 89, 32, 54, 65, 76, 100, 34, 15];
+
+      function display() {
+        console.log("<br />Contents of the array is : <br/>");
+        for (let i = 0; i < a.length; i++) {
+          console.log(`${a[i]} `);
+        }
+      }
+      display();
+      //Performing insertion of 'newEl' at 'pos'
+      function performInsertion() {
+        let newEl = document.getElementById("inpEl").value;
+        let pos = document.getElementById("inpPos").value;
+        document.getElementById("inpEl").value = "";
+        document.getElementById("inpPos").value = "";
+        console.log("new element : " + newEl);
+        console.log("position of insertion : " + pos);
+        //Displaying the array before insertion
+        display();
+        for (let i = a.length - 1; i >= pos; i--) {
+          a[i + 1] = a[i];
+        }
+        a[pos] = newEl;
+        //Displaying the array before insertion
+        display();
+      }
+    </script>
+  </body>
+</html>

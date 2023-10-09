@@ -1,0 +1,98 @@
+<!-- video 5 : Search in array -->
+<!-- video link : https://www.youtube.com/watch?v=CRryTuR-4Jo&list=PL8p2I9GklV47TMMnPzqnkCtSOS3ebr4O7&index=5 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search in Array</title>
+    <style>
+      body {
+        height: 100vh;
+        background-image: linear-gradient(
+          to top,
+          rgb(93, 0, 93),
+          rgb(119, 119, 243)
+        );
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        gap: 2vh;
+      }
+      h2 {
+        font-size: 3.1rem;
+        font-weight: 600;
+      }
+      a {
+        font-size: 1.7rem;
+        color: white;
+      }
+      input {
+        font-size: 1.5rem;
+        padding: 1vh;
+      }
+      button {
+        font-size: 0.8rem;
+        padding: 1vh;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      button:hover {
+        background-color: aqua;
+      }
+      #demo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.2rem;
+        height: fit-content;
+        width: 70vw;
+        border: 2px solid white;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Search in an Array</h2>
+    <a
+      href="https://www.youtube.com/watch?v=CRryTuR-4Jo&list=PL8p2I9GklV47TMMnPzqnkCtSOS3ebr4O7&index=5"
+      target="_blank"
+      >Go to the Tutorial</a
+    >
+    <input type="text" id="inp" placeholder="Enter the element" />
+    <button id="btn" onclick="isElementPresent()">Click here</button>
+    <p id="demo"></p>
+    <script>
+      const a = [1, 2, 3, 4, 5, 6, 7, 5, 8, 9];
+      const demo = document.getElementById("demo");
+
+      function display() {
+        for (let i = 0; i < a.length; i++) {
+          console.log(a[i]);
+        }
+      }
+      function isElementPresent() {
+        console.log(demo);
+        let elFound = 0;
+        display();
+        const searchEl = parseInt(document.getElementById("inp").value);
+        document.getElementById("inp").value = "";
+        for (let i = 0; i < a.length; i++) {
+          if (a[i] === searchEl) {
+            elFound = 1;
+            console.log(`The element ${searchEl} is present at positon ${i}`);
+            demo.insertAdjacentHTML(
+              "beforeEnd",
+              `The element ${searchEl} is present at positon ${i}<br>`
+            );
+          }
+        }
+        if (!elFound) {
+          demo.innerHTML = `The element "${searchEl}" not found.`;
+        }
+      }
+    </script>
+  </body>
+</html>
